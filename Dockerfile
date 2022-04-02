@@ -12,9 +12,9 @@ LABEL description="AMI Web Framework"
 
 ########################################################################################################################
 
-ENV AMI_HOME_PAGE_TITLE=""
+ENV AMI_HOME_PAGE_TITLE="AMI"
 
-ENV AMI_HOME_PAGE_ENDPOINT=""
+ENV AMI_HOME_PAGE_ENDPOINT="https://localhost:8443/AMI/FrontEnd"
 
 ########################################################################################################################
 
