@@ -35,7 +35,7 @@ Developers
 * [Jérôme ODIER](https://annuaire.in2p3.fr/4121-4467/jerome-odier) ([CNRS/LPSC](http://lpsc.in2p3.fr/))
 
 [Build Status]:https://github.com/ami-team/docker-ami-web-framework/actions/workflows/docker-image.yml
-[Build Status img]:https://github.com/ami-team/docker-ami-web-framework/actions/workflows/docker-image.yml/badge.svg
+[Build Status img]:https://github.com/ami-team/docker-ami-web-framework/actions/workflows/docker-image.yml/badge.svg?branch=master
 
 [License]:http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.txt
 [License img]:https://img.shields.io/badge/license-CeCILL-blue.svg
