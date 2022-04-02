@@ -38,7 +38,7 @@ RUN sed -i "/^set .*$/a ( cd /usr/share/nginx/html/ \n ./awf.py --update-prod \n
 
 ########################################################################################################################
 
-VOLUME ["/usr/share/nginx/html/controls", "/usr/share/nginx/html/subapps", "/usr/share/nginx/html/docs"]
+VOLUME ["/usr/share/nginx/html/"]
 
 ########################################################################################################################
 
