@@ -30,9 +30,11 @@ RUN curl -L https://raw.githubusercontent.com/ami-team/awfwebpack/master/tools/a
 
 RUN chmod a+x /usr/share/nginx/html/awf.py
 
+RUN rm /usr/share/nginx/html/index.html
+
 ########################################################################################################################
 
-RUN sed -i "/^set .*$/a ( cd /usr/share/nginx/html/ && ./awf.py --update-prod\n./awf.py --create-home-page --home-page-title=\${AMI_HOME_PAGE_TITLE} --home-page-endpoint=\${AMI_HOME_PAGE_ENDPOINT} )" /docker-entrypoint.sh
+RUN sed -i "/^set .*$/a ( cd /usr/share/nginx/html/ \n ./awf.py --update-prod \n if [[ ! -f index.html ]] \n then \n ./awf.py --create-home-page --home-page-title=\${AMI_HOME_PAGE_TITLE} --home-page-endpoint=\${AMI_HOME_PAGE_ENDPOINT} \n fi ) || exit 1" /docker-entrypoint.sh
 
 ########################################################################################################################
 
