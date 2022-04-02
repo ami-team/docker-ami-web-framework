@@ -12,8 +12,6 @@ LABEL description="AMI Web Framework"
 
 ########################################################################################################################
 
-ENV PYTHONUNBUFFERED="1"
-
 ENV AMI_HOME_PAGE_TITLE=""
 
 ENV AMI_HOME_PAGE_ENDPOINT=""
