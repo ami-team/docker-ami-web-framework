@@ -18,17 +18,19 @@ ENV AMI_HOME_PAGE_ENDPOINT="https://localhost:8443/AMI/FrontEnd"
 
 ########################################################################################################################
 
-RUN apk add --update --no-cache git
-
-RUN apk add --update --no-cache python3
+RUN ["apk", "add", "--update", "--no-cache", "git", "python3"]
 
 ########################################################################################################################
 
-RUN curl -L https://raw.githubusercontent.com/ami-team/awfwebpack/master/tools/awf_stub.py > /usr/share/nginx/html/awf.py
+RUN ["rm", "-fr", "/usr/share/nginx/html/"]
 
-RUN chmod a+x /usr/share/nginx/html/awf.py
+RUN ["mkdir", "/usr/share/nginx/html/"]
 
-RUN rm /usr/share/nginx/html/index.html
+########################################################################################################################
+
+RUN ["wget", "-O", "/usr/share/nginx/html/awf.py", "https://raw.githubusercontent.com/ami-team/awfwebpack/master/tools/awf_stub.py"]
+
+RUN ["chmod", "a+x", "/usr/share/nginx/html/awf.py"]
 
 ########################################################################################################################
 
@@ -37,5 +39,9 @@ RUN sed -i "/^set .*$/a (\nexport PYTHONUNBUFFERED=1\ncd /usr/share/nginx/html/\
 ########################################################################################################################
 
 EXPOSE 80
+
+########################################################################################################################
+
+VOLUME /usr/share/nginx/html/
 
 ########################################################################################################################
