@@ -34,7 +34,7 @@ RUN ["chmod", "a+x", "/usr/share/nginx/html/awf.py"]
 
 ########################################################################################################################
 
-RUN sed -i "/^set .*$/a (\nexport PYTHONUNBUFFERED=1\ncd /usr/share/nginx/html/\n./awf.py --update-prod\nif [[ ! -f index.html ]]\nthen\n./awf.py --create-home-page --home-page-title=\${AMI_HOME_PAGE_TITLE} --home-page-endpoint=\${AMI_HOME_PAGE_ENDPOINT}\nfi\n) || exit 1" /docker-entrypoint.sh
+RUN sed -i "/^set .*$/a (\nexport PYTHONUNBUFFERED=1\ncd /usr/share/nginx/html/\n./awf.py --update-prod\nif [[ ! -f index.html ]]\nthen\n./awf.py --create-home-page --home-page-title=\"\${AMI_HOME_PAGE_TITLE}\" --home-page-endpoint=\"\${AMI_HOME_PAGE_ENDPOINT}\"\nfi\n) || exit 1" /docker-entrypoint.sh
 
 ########################################################################################################################
 
