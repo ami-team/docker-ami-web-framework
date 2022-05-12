@@ -28,11 +28,11 @@ RUN ["mkdir", "/usr/share/nginx/html/"]
 
 ########################################################################################################################
 
-COPY setup-awf.sh /setup-awf.sh
+COPY docker-awf.sh /docker-awf.sh
 
-RUN ["chmod", "a+x", "/setup-awf.sh"]
+RUN ["chmod", "a+x", "/docker-awf.sh"]
 
-RUN ["sed", "-i", "/^set .*$/a /setup-awf.sh", "/docker-entrypoint.sh"]
+RUN ["sed", "-i", "/^set .*$/a\\\\n/docker-awf.sh", "/docker-entrypoint.sh"]
 
 ########################################################################################################################
 
