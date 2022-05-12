@@ -28,13 +28,11 @@ RUN ["mkdir", "/usr/share/nginx/html/"]
 
 ########################################################################################################################
 
-RUN ["wget", "-O", "/usr/share/nginx/html/awf.py", "https://raw.githubusercontent.com/ami-team/awfwebpack/master/tools/awf_stub.py"]
+COPY setup-awf.sh /setup-awf.sh
 
-RUN ["chmod", "a+x", "/usr/share/nginx/html/awf.py"]
+RUN ["chmod", "a+x", "/setup-awf.sh"]
 
-########################################################################################################################
-
-RUN sed -i "/^set .*$/a (\nexport PYTHONUNBUFFERED=1\ncd /usr/share/nginx/html/\n./awf.py --update-prod\nif [[ ! -f index.html ]]\nthen\n./awf.py --create-home-page --home-page-title=\"\${AMI_HOME_PAGE_TITLE}\" --home-page-endpoint=\"\${AMI_HOME_PAGE_ENDPOINT}\"\nfi\n) || exit 1" /docker-entrypoint.sh
+RUN ["sed", "-i", "/^set .*$/a /setup-awf.sh", "/docker-entrypoint.sh"]
 
 ########################################################################################################################
 
