@@ -15,7 +15,7 @@ export PYTHONUNBUFFERED=1
 
   if [ ! -f ./awf.py ]
   then
-    wget -O ./awf.py https://raw.githubusercontent.com/ami-team/AMIWebFramework/master/tools/awf_stub.py
+    wget -O ./awf.py https://raw.githubusercontent.com/ami-team/awf-dist/master/tools/awf_stub.py
 
     chmod a+x ./awf.py
   fi
